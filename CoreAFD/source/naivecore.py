@@ -85,7 +85,7 @@ class NaiveCore:
                     return True
             stk.remove(v)
             return False
-        return any(dfs(n, set()) for n in list(g) if n not in seen)
+
     def compute_closure(self, lhs, fd_list):
         closure = set(lhs)
         changed = True

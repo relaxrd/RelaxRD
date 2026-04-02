@@ -37,6 +37,8 @@ def main(data_path, coreafd_path, output_dir):
     print(f"[Efficiency] Relation instantiation time: {t_end - t_start:.4f} seconds")
 
 
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run RelaxRD decomposition")
 

@@ -288,6 +288,7 @@ class QuickCore:
                 if gain is not None:
                     gain_map[rhs].append((lhs_t, gain))
         return gain_map
+
     def save_coreafd_as_pkl(self, coreafd, output_pkl_path):
         lhs_to_rhs = defaultdict(list)
 
@@ -304,4 +305,4 @@ class QuickCore:
         with open(output_pkl_path, "wb") as f:
             pkl.dump(afd_list, f)
 
-        print(f"[AFD Save] Saved {len(afd_list)} AFD entries to {output_pkl_path}")
+
