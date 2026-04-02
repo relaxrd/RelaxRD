@@ -96,3 +96,42 @@ The decomposed relations will be stored in **RelaxRD/output/fraudTrain/**
 
 
 
+## Step 4: Workload for quey latency
+
+
+
+The Query_Performance/Workload/ directory contains the SQL workloads used for query latency evaluation.
+For each dataset, two SQL files are provided:
+
+
+	*.sql: the workload executed on the original large relation
+	*_coreafd.sql: the corresponding workload rewritten for RelaxRD
+
+
+
+
+The rewritten workload can be generated automatically using:
+
+
+```bash
+python Query_Performance/rewriter_tool.py
+```
+
+This tool converts queries over the original table into equivalent queries over the RelaxRD decomposition, enabling latency comparison between the original schema and the RelaxRD schema.
+
+
+To evaluate latency on the RelaxRD schema, you must first load the decomposed relations (i.e., the RelaxRD output tables) into your database system.
+These relations are located under:
+
+	relaxrd/out/<dataset_name>/
+
+In other words:
+
+	1. use the original large table to run *.sql
+
+	2. use the RelaxRD decomposed tables under relaxrd/out/<dataset_name>/ to run *_coreafd.sql
+
+
+
+This allows fair workload-based latency evaluation between the original and RelaxRD storage layouts.
+
